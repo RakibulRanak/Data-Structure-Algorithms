@@ -50,7 +50,7 @@ int main()
     enque(&myqueue,2);
     enque(&myqueue,1);
     enque(&myqueue,1);
-    enque(&myqueue,2);
+   // enque(&myqueue,2);
 
 
     item=dequeue(&myqueue);
