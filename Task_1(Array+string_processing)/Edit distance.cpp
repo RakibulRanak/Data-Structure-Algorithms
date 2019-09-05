@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -39,13 +40,20 @@ int editDistDP(string str1, string str2, int m, int n)
 		cout << endl;
 	}
 	int i = m, j = n;
-	//vector<string>vec;
-	//cout<<"hi"<<endl;
-	while (i > 0 && j > 0)
+	while (i+j>0)
 	{
-		//cout<<"hi2"<<endl;
+		if(i==0)
+        {
+            cout << "Inserted : " << i << endl;
+			j--;
+        }
+        else if(j==0)
+        {
+            cout << "Deleted : " << i << endl;
+			i--;
+        }
 
-		if (str1[i - 1] == str2[j - 1])
+		else if (str1[i - 1] == str2[j - 1])
 		{
 			cout << "No operations : " << i << endl;
 			j--;
@@ -81,6 +89,7 @@ int main()
 	string str1;
 	string str2;
 	cin >> str1 >> str2;
+	cout<<str1<<" --> "<<str2<<endl;
 
 	cout << editDistDP(str1, str2, str1.length(), str2.length());
 
