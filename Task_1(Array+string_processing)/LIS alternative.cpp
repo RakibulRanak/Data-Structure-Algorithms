@@ -10,7 +10,7 @@ int main()
 	int n = sizeof(ara) / sizeof(n);
 	int lioes[n];
 
-	int maxLen = 0;
+	int max= 0;
 	int lastindex;
 	bool odd = false, even = false;
 
@@ -27,8 +27,8 @@ int main()
 		for (int j = 0; j < i; j++) {
 			if (ara[i] > ara[j] && (ara[i] + ara[j]) % 2 != 0 && lioes[i] < lioes[j] + 1) {
 				lioes[i] = lioes[j] + 1;
-				if (lioes[i] > maxLen) {
-					maxLen = lioes[i];
+				if (lioes[i] > max) {
+					max= lioes[i];
 					lastindex = i;
 					if (lioes[i] % 2 == 1) {
 						odd = true;
@@ -48,9 +48,10 @@ int main()
 	for(int i=0;i<n;i++)
 		cout<<lioes[i]<<" ";
 	cout<<endl;
-	cout << maxLen << endl;
+
+	cout << max << endl;
 	vector<int>vec;
-	int max = maxLen;
+
 	int value = ara[lastindex];
 	int i = lastindex;
 	while (max > 0)
@@ -62,7 +63,7 @@ int main()
 			value = ara[i];
 			even = false;
 			odd = true;
-			//cout<<"hieven"<<endl;
+	
 
 		}
 		else if ((i == lastindex || value > ara[i]) && odd &&ara[i]%2==1)
@@ -72,7 +73,7 @@ int main()
 			value = ara[i];
 			even = true;
 			odd = false;
-			//cout<<"hiodd"<<endl;
+			
 		}
 		i--;
 	}
