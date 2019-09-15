@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    int ara[] = {2,4,6,8,10,12,14};
+    int ara[] = {1,2,6,7,10,12,15};
     int n = sizeof(ara) / sizeof(n);
     int lioes[n];
 
@@ -20,6 +20,7 @@ int main()
 
     for (int i = 1; i < n; i++)
     {
+        cout<<"Step "<<i<<": ";
         for (int i = 0; i < n; i++)
             cout << lioes[i] << " ";
 
@@ -39,10 +40,12 @@ int main()
             }
         }
     }
+    cout<<"Step "<<n<<": ";
     for(int i=0; i<n; i++)
         cout<<lioes[i]<<" ";
     cout<<endl;
 
+    cout<<"MaxSize: ";
     cout << max << endl;
     vector<int>vec;
 
@@ -60,6 +63,8 @@ int main()
         odd = false;
         even = true;
     }
+    cout<<endl;
+    cout<<"Sequence is: ";
 
     while (max > 0)
     {
