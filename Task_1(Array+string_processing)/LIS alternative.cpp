@@ -6,12 +6,12 @@ using namespace std;
 
 int main()
 {
-    int ara[] = { 1, 2, 3, 4, 5, 5, 8, 10};
+    int ara[] = {2,4,6,8,10,12,14};
     int n = sizeof(ara) / sizeof(n);
     int lioes[n];
 
-    int max= 0;
-    int lastindex;
+    int max= 1;
+    int lastindex=0;
     bool odd = false, even = false;
 
     for (int i = 0; i < n; i++)
