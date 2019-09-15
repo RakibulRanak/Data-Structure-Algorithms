@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	int ara[] = { 1, 2, 4, 4, 5, 5, 7, 8};
+	int ara[] = { 1, 2, 3, 4, 5, 5, 8, 9};
 	int n = sizeof(ara) / sizeof(n);
 	int lioes[n];
 
@@ -56,24 +56,24 @@ int main()
 	int i = lastindex;
 	while (max > 0)
 	{
-		if ((i == lastindex || value > ara[i]) && even &&ara[i]%2==0)
+		if ((i == lastindex &&even &&ara[i]%2==0) || (value > ara[i] && even &&ara[i]%2==0))
 		{
 			max--;
 			vec.push_back(ara[i]);
 			value = ara[i];
 			even = false;
 			odd = true;
-	
+
 
 		}
-		else if ((i == lastindex || value > ara[i]) && odd &&ara[i]%2==1)
+		else if ((i == lastindex && odd && ara[i]%2==1) || (value > ara[i] && odd &&ara[i]%2==1))
 		{
 			max--;
 			vec.push_back(ara[i]);
 			value = ara[i];
 			even = true;
 			odd = false;
-			
+
 		}
 		i--;
 	}
