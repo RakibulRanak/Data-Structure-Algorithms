@@ -42,6 +42,8 @@ int Person1::ageplus10plusx(int x)
 Person1::~Person1()
 {
 	//deallocate something here
+	//this method runs automatically before finishing the execution
+	cout << "destroyed" << endl;
 };
 
 

@@ -48,8 +48,9 @@ int main()
 	x = 5;
 	int *p;
 	p = &x;
-	cout << p << endl;
-	cout << *p << endl;
+	cout << p << endl; //address stored in p
+	cout << &p << endl; //address of p
+	cout << *p << endl;  //value of the address stored in p
 	cout << &x << endl;
 
 
