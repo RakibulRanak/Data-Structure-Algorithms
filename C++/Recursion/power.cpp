@@ -28,7 +28,7 @@ int main()
 	int n = 10;
 	int ans = power1(3, 9);
 	cout << ans << endl;
-	ans = power1(3, 9);
+	ans = power2(2, 3);
 	cout << ans << endl;
 }
 
