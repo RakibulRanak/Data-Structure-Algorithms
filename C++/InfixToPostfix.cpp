@@ -1,65 +1,100 @@
-#include <bits/stdc++.h>
+/* C++ implementation to convert infix expression to postfix*/
+// Note that here we use std::stack for Stack operations
+#include<bits/stdc++.h>
 using namespace std;
 
-bool isOperand(char x)
+//Function to return precedence of operators
+int prec(char c)
 {
-	if (x == '+' || x == '-' || x == '*' || x == '/')
-		return false;
-	else
-		return true;
-}
-
-int Precedence(char x)
-{
-	if (x == '+' || x == '-')
+	if (c == '^')
+		return 3;
+	else if (c == '*' || c == '/')
+		return 2;
+	else if (c == '+' || c == '-')
 		return 1;
 	else
-		return 2;
-
+		return -1;
+}
+bool isLetter(char x)
+{
+	if ((x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z'))
+		return true;
+	else
+		return false;
 }
 
-string InfixToPostfix(string infix)
+
+// The main function to convert infix expression
+//to postfix expression
+void infixToPostfix(string s)
 {
-	int len = infix.size();
-	string postfix = "";
-	stack<char>s;
-	int i = 0, j = 0;
-	while (i < len)
+	stack<char> st;
+	st.push('N');
+	int l = s.length();
+	string ns;
+	for (int i = 0; i < l; i++)
 	{
-		if (isOperand(infix[i]))
+		// If the scanned character is an operand, add it to output string.
+		if (isLetter(s[i]))
+			ns += s[i];
+
+		// If the scanned character is an ‘(‘, push it to the stack.
+		else if (s[i] == '(')
+			st.push('(');
+
+		// If the scanned character is an ‘)’, pop and to output string from the stack
+		// until an ‘(‘ is encountered.
+		else if (s[i] == ')')
 		{
-			postfix += infix[i++];
-		}
-		else
-		{
-			if (s.size() == 0 || Precedence(infix[i]) > Precedence(s.top()))
-				s.push(infix[i++]);
-			else
+			while (st.top() != 'N' && st.top() != '(')
 			{
-				while (s.size() != 0 && Precedence(infix[i]) <= Precedence(s.top()))
-				{
-					char x = s.top();
-					s.pop();
-					postfix += x;
-				}
-				s.push(infix[i++]);
+				char c = st.top();
+				st.pop();
+				ns += c;
+			}
+			if (st.top() == '(')
+			{
+				char c = st.top();
+				st.pop();
 			}
 		}
+
+		//If an operator is scanned
+		else {
+			while (st.top() != 'N' && prec(s[i]) <= prec(st.top()))
+			{
+				char c = st.top();
+				st.pop();
+				ns += c;
+			}
+			st.push(s[i]);
+		}
+
 	}
-	while (!s.empty()) {
-		postfix += s.top();
-		s.pop();
+	//Pop all the remaining elements from the stack
+	while (st.top() != 'N')
+	{
+		char c = st.top();
+		st.pop();
+		ns += c;
 	}
 
-	return postfix;
+	cout << ns << endl;
+
 }
 
-
+//Driver program to test above functions
 int main()
 {
-	string infix;
-	cin >> infix;
-	string postfix = "";
-	postfix = InfixToPostfix(infix);
-	cout << postfix << endl;
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		string exp;
+		cin >> exp;
+		infixToPostfix(exp);
+		//cout << exp << endl;
+	}
+	return 0;
 }
+// This code is contributed by Gautam Singh

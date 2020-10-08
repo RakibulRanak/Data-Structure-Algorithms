@@ -4,10 +4,15 @@ using namespace std;
 #define FastIO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 typedef pair<int , pair<int, int> > pi;
 
+//somehow this is totally ulta
+//priority queue of pair of pairs ; [a1,(b1,c1)],  [a2,(b2,c2)]
+//a is descending , then b is ascending
+
 struct Compare {
-	constexpr bool operator()(pi const & a,
-	                          pi const & b) const noexcept
-	{ return a.first < b.first || (a.first == b.first && a.second.first > b.second.first); }
+	bool operator()(pi const & a, pi const & b)
+	{
+		return a.first < b.first || (a.first == b.first && a.second.first > b.second.first);
+	}
 
 };
 
