@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-
+//https://codeforces.com/contest/1420/problem/B
 //my func
 int fi(ll a) {
 	for (ll i = 31; i >= 0; i--) {
