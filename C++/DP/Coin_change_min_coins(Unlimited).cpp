@@ -17,6 +17,7 @@ int solve1(int x)
 	int best = INF;
 	for (auto c : coins)
 	{
+
 		best = min(best, solve1(x - c) + 1);
 	}
 	value1[x] = best;
@@ -65,4 +66,7 @@ int main()
 	cout << endl;
 
 	//both solutions time coplexity is O(n*totalcoins)
+
+	/* for limited use of one coin, we can have a map and decrease it
+	whenever we use that specific coin . If m[coin[i]]==0 , skip it*/
 }
