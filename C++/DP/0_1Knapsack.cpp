@@ -1,5 +1,5 @@
-// A Dynamic Programming based
-// solution for 0-1 Knapsack problem
+// A Dynamic and Iterative Programming based
+//https://www.youtube.com/watch?v=8LusJS5-AGo
 #include <bits/stdc++.h>
 using namespace std;
 

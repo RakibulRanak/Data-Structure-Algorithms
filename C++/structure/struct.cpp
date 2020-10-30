@@ -23,6 +23,7 @@ int main()
 		cin >> mystd[i].marks;
 	}
 	sort(mystd, mystd + 5, compare);
+
 	for (int i = 0; i < 5; i++) {
 		cout << mystd[i].roll << " " << mystd[i].name << " " << mystd[i].marks << endl;
 	}

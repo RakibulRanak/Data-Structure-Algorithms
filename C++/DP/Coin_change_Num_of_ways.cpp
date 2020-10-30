@@ -21,7 +21,7 @@ int main()
 
 		//it can calculate up to n= 10^5, if n is bigger solution exceeds memory
 		// complexity n*coins
-		//if n=6 , (1,5),(1,1,1,1,1,1)=2 (Not combination)
+		//if n=6 , (1,5),(1,1,1,1,1,1)=2 (Number of  combination)
 
 
 		for (auto c : coins)
@@ -38,7 +38,7 @@ int main()
 		value2.clear();
 		value2[0] = 1;
 
-		//if n=6 , (1,5),(1,1,1,1,1,1),(5,1)=3 //combination
+		//if n=6 , (1,5),(1,1,1,1,1,1),(5,1)=3 //Number of permutation
 		//it can calculate around n=10^5
 		for (int x = 1; x <= n; x++)
 		{
